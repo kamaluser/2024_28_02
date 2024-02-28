@@ -11,8 +11,8 @@ using _2024_28_02;
 namespace _2024_28_02.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240228133136_ProductsTableAdd")]
-    partial class ProductsTableAdd
+    [Migration("20240228134811_ProductsDatabaseChanged")]
+    partial class ProductsDatabaseChanged
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

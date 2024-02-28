@@ -4,7 +4,7 @@
 
 namespace _2024_28_02.Migrations
 {
-    public partial class ProductsTableAdd : Migration
+    public partial class ProductsDatabaseChanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

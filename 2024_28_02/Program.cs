@@ -163,7 +163,14 @@ do
                             Console.WriteLine("Id: ");
                             idStr = Console.ReadLine();
                         } while (!int.TryParse(idStr, out id) || id < 0);
-                        pd.GetProductById(id);
+                        if (pd.GetProductById(id)!=null)
+                        {
+                            pd.GetProductById(id);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Id Not Found!");
+                        }
                         break;
                     case "3":
                         Console.WriteLine("All Products: \n");
@@ -173,8 +180,47 @@ do
                         }
                         break;
                     case "4":
+                        do
+                        {
+                            Console.WriteLine("Id: ");
+                            idStr = Console.ReadLine();
+                        } while (!int.TryParse(idStr, out id) || id < 0);
+
+                        pd.DeleteProduct(id);
                         break;
                     case "5":
+                        do
+                        {
+                            Console.WriteLine("Id To Update: ");
+                            idStr = Console.ReadLine();
+                        } while (!int.TryParse(idStr, out id) || id < 0);
+
+
+                        do
+                        {
+                            Console.WriteLine("Name:");
+                            name = Console.ReadLine();
+                        } while (String.IsNullOrWhiteSpace(name));
+
+                        do
+                        {
+                            Console.WriteLine("Price: ");
+                            priceStr = Console.ReadLine();
+                        } while (!decimal.TryParse(priceStr, out price) || price < 0);
+
+                        do
+                        {
+                            Console.WriteLine("BrandId: ");
+                            brandIdStr = Console.ReadLine();
+                        } while (!int.TryParse(brandIdStr, out brandId) || brandId < 0);
+
+                        Product newProduct = new Product
+                        {
+                            Name = name,
+                            Price = price,
+                            BrandId = brandId
+                        };
+                        pd.UpdateProduct(id, newProduct);
                         break;
                     case "0":
                         Console.WriteLine("Product Menu -> Finished");
